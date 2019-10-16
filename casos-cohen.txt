@@ -1,0 +1,9 @@
+caso-teste 0
+caso1 10
+caso2 36
+caso3 72
+caso4 199
+caso5 180
+caso6 885
+caso7 680
+caso8 2195
