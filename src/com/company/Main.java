@@ -9,16 +9,83 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    public static ArrayList<Tubo> tubos=new ArrayList<>();
+    public static ArrayList lista = new ArrayList();
+    public static int quantidadetubos;
+    public static Barraca barraca;
+    public static int i = -1;
 
     public static void main(String[] args) {
-        ArrayList lista = new ArrayList();
-	  readFile("caso1.txt", lista);
-        /*for(int i=0; i<lista.size();i++) {
-            System.out.println(lista.get(i));
-        }*/
-        resposta(lista);
-        maior();
+
+	    readFile("caso1.txt", lista);
+	    quantidadetubos = (int) lista.remove(0);
+	    lista.remove(0);
+        barraca = new Barraca();
+        criaGrafo();
+    }
+
+    public static void addTubosBarraca(int nome){
+        Tubo t = new Tubo(nome);
+        barraca.tubos.add(t);
+    }
+
+    public static int leTexto(){
+        i++;
+        return (int) lista.get(i);
+    }
+
+    public static void criaGrafo(){
+        if(i < lista.size()-1) {
+            Buraco buracoOrigem;
+            Buraco buracoDestino;
+
+            int tuboOrigem = leTexto();
+            int posTuboOrigemnaBarraca = barraca.achaTubo((int) lista.get(i));
+            if (-1 == posTuboOrigemnaBarraca) { //se nao tem o tubo
+                //cria tubo
+                addTubosBarraca(tuboOrigem);
+                posTuboOrigemnaBarraca = barraca.achaTubo((int) lista.get(i));
+            }
+            Tubo ttuboOrigem = barraca.tubos.get(posTuboOrigemnaBarraca);
+
+            int nomeBuracoOrigem = leTexto();
+            int posBuradoOrigemnoTubo = ttuboOrigem.achaBuraco(nomeBuracoOrigem);
+            if (-1 == posBuradoOrigemnoTubo) {//se nao tem o buraco
+                //cria buraco
+                buracoOrigem = new Buraco(ttuboOrigem,nomeBuracoOrigem);
+                //adiciona o buraco no tubo
+                ttuboOrigem.getBuracos().add(buracoOrigem);
+                posBuradoOrigemnoTubo = ttuboOrigem.achaBuraco(nomeBuracoOrigem);
+            }
+
+            int tuboDestino = leTexto();
+            int posTuboDestinonaBarraca = barraca.achaTubo((int) lista.get(i));
+            if (-1 == posTuboDestinonaBarraca) { //se nao tem o tubo
+                //cria tubo
+                addTubosBarraca(tuboDestino);
+                posTuboDestinonaBarraca = barraca.achaTubo((int) lista.get(i));
+            }
+            Tubo ttuboDestino = barraca.tubos.get(posTuboDestinonaBarraca);
+
+            int nomeBuracoDestino = leTexto();
+            int posBuradoDestinonoTubo = ttuboDestino.achaBuraco(nomeBuracoDestino);
+            if (-1 == posBuradoDestinonoTubo) {//se nao tem o buraco
+                //cria buraco
+                buracoDestino = new Buraco(ttuboDestino,nomeBuracoDestino);
+                //adiciona o buraco no tubo
+                ttuboDestino.getBuracos().add(buracoDestino);
+                posBuradoDestinonoTubo = ttuboDestino.achaBuraco(nomeBuracoDestino);
+            }
+
+            buracoOrigem = barraca.tubos.get(posTuboOrigemnaBarraca).buracos.get(posBuradoOrigemnoTubo);
+            buracoDestino = barraca.tubos.get(posTuboDestinonaBarraca).buracos.get(posBuradoDestinonoTubo);
+
+
+            buracoOrigem.buradoDestino = buracoDestino;
+            buracoOrigem.tubodestino = ttuboDestino;
+            buracoOrigem.tuboorigem = ttuboOrigem;
+
+            criaGrafo();
+        }
     }
 
     public static boolean readFile(String nomeArq, ArrayList lista) {
@@ -49,54 +116,5 @@ public class Main {
         return result2;
     }
 
-    public static void resposta(ArrayList lista)
-    {
-        Tubo tubo;
-        int t = (int) lista.remove(0);
-        lista.remove(0);
-        int t2, idtubos;
 
-        for(int j=0;j<t;j++)
-        {
-            tubo = new Tubo();
-            tubo.nome = j;
-            tubos.add(tubo);
-        }
-
-        for (int i=0; i<lista.size();i=i+4){
-            t2 = (int) lista.get(i);
-            idtubos = procuraTudo(t2);
-            if(-1 != idtubos){
-                tubos.get(idtubos).incqtd();
-            }else{
-                System.out.println("Nao achou");
-                break;
-            }
-        }
-    }
-
-    public static int procuraTudo(int n)
-    {
-        for(int i=0;i<tubos.size();i++)
-        {
-            if(n==tubos.get(i).getNome())
-            {
-                return i;
-            }
-        }
-        return -1;
-    }
-
-    public static void maior()
-    {
-        int nome = 0;
-        int maior = 0;
-        for(int i=0;i<tubos.size();i++){
-            if(maior < tubos.get(i).getQtd()){
-                maior = tubos.get(i).getQtd();
-                nome = tubos.get(i).getNome();
-            }
-        }
-        System.out.println("Maior: " + nome + " com " + maior);
-    }
 }
