@@ -18,4 +18,24 @@ public class Barraca { //é o conjuntoq ue guarda todos os tubos
         }
         return -1;//se nao achou esse tubo (nao esta criado ainda)
     }
+
+    public void ordenaTubos(){
+        Tubo a,b;
+        for(int i = 0; i<tubos.size();i++){
+            for(int p = 0; p<tubos.size();p++){
+                if(tubos.get(i).getNome() < tubos.get(p).getNome()){
+                    a = tubos.get(i);
+                    b = tubos.get(p);
+                    tubos.set(i,b);
+                    tubos.set(p,a);
+                }
+            }
+        }
+    }
+
+    public void printaTubos(){
+        for (int i = 0; i<tubos.size();i++){
+            System.out.println("Tubo: " + tubos.get(i).getNome());
+        }
+    }
 }

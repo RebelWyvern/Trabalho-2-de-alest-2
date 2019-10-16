@@ -16,11 +16,18 @@ public class Main {
 
     public static void main(String[] args) {
 
-	    readFile("caso1.txt", lista);
+	    readFile("anivia.txt", lista);
 	    quantidadetubos = (int) lista.remove(0);
 	    lista.remove(0);
         barraca = new Barraca();
         criaGrafo();
+        System.out.println("SAI DO CRIAGRAFO");
+        //percorre o grafo e adiciona a quantidade de bolinhas para cada tubo
+        barraca.ordenaTubos();
+        for (Tubo t:barraca.getTubos()) {
+            t.ordenaBuracos();
+        }
+
     }
 
     public static void addTubosBarraca(int nome){
@@ -116,5 +123,8 @@ public class Main {
         return result2;
     }
 
+    public static void ordenaBarraca(){
+
+    }
 
 }
