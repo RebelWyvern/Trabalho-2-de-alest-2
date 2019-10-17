@@ -26,7 +26,10 @@ public class Main {
         barraca.ordenaTubos();
         for (Tubo t:barraca.getTubos()) {
             t.ordenaBuracos();
+            percorreGrafo(t.getBuracos().get(0));
         }
+
+
 
     }
 
@@ -123,8 +126,14 @@ public class Main {
         return result2;
     }
 
-    public static void ordenaBarraca(){
-
+    public static Tubo percorreGrafo(Buraco b)
+    {
+        if(b.buradoDestino!=null)
+        {
+            percorreGrafo(b.buradoDestino);
+        }
+        //System.out.println("sai");
+        return b.tuboorigem;
     }
 
 }
