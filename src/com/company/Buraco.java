@@ -11,6 +11,14 @@ public class Buraco {
         this.tuboorigem = tuboorigem;
     }
 
+    public Buraco pegaoProximoBuraco(){
+        int aux = this.tuboorigem.achaBuraco(this.nome + 1);
+        if(aux == -1){ //nao acho o proximo buraco
+            return this;
+        }
+        return this.tuboorigem.buracos.get(aux);
+    }
+
     public int getNome() {
         return nome;
     }

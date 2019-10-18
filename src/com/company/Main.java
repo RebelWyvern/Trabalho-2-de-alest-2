@@ -27,19 +27,19 @@ public class Main {
         for (Tubo t:barraca.getTubos()) {
             t.ordenaBuracos();
         }
-        for(int i=0;i<barraca.getTubos().size()-1;i++)
+        /*for(int i=0;i<barraca.getTubos().size();i++)
         {
             System.out.println("tubo a ser percorrido: "+barraca.getTubos().get(i).nome);
             percorreGrafo(barraca.tubos.get(i).buracos.get(0));
             System.out.println("///////////////////////////////////////////////////////");
-        }
-        System.out.println("numero de bolinhas: "+barraca.tubos.get(0).quantBolinha);
+        }*/
+        //System.out.println("numero de bolinhas: "+barraca.tubos.get(0).quantBolinha);
         //System.out.println("primeiro buraco do tubo: "+barraca.tubos.get(0).buracos.get(4).tubodestino.getNome());
 
         //System.out.println(barraca.tubos.get(0).buracos.get(0).tubodestino.getNome());
         //System.out.println(barraca.tubos.get(0).buracos.get(0).nome);
-        //percorreGrafo(barraca.tubos.get(0).buracos.get(0));
-        //System.out.println("numero de bolinhas: "+barraca.tubos.get(0).quantBolinha);
+        percorreGrafo(barraca.tubos.get(0).buracos.get(0));
+        System.out.println("numero de bolinhas: "+barraca.tubos.get(0).quantBolinha);
         //System.out.println("tubo final: "+aux.nome);
 
 
@@ -138,7 +138,7 @@ public class Main {
         return result2;
     }
 
-    public static void percorreGrafo(Buraco b)
+    public static void percorreGrafo2(Buraco b)
     {   int jaentrou=0;
 
         System.out.println("tubo q estou: "+b.tuboorigem.nome);
@@ -149,11 +149,8 @@ public class Main {
         }
         else
         {
-            for(int i=0;i<b.tuboorigem.buracos.size();i++)
-            {
-                if(b.tuboorigem.buracos.get(i).nome==b.nome)
-                {
-                    for (int j=i+1;i<b.tuboorigem.buracos.size();j++)
+
+                    for (int j=b.tuboorigem.achaBuraco(b.nome)+1;i<b.tuboorigem.buracos.size();j++)
                     {
 
                         if(b.tuboorigem.buracos.get(j).tubodestino!=null&&jaentrou==0)
@@ -161,19 +158,31 @@ public class Main {
                             percorreGrafo(b.tuboorigem.buracos.get(j).buradoDestino);
                             jaentrou++;
                         }
-                        else if(b.tuboorigem.buracos.get(j).buradoDestino==null&&j==b.tuboorigem.buracos.size()-1)
+                        else if(b.tubodestino==null&&j==b.tuboorigem.buracos.size()-1)
                         {
                             b.tuboorigem.adicionaBolinha();
                             return;
                         }
                     }
 
-                }
-
-
-            }
         }
 
     }
+    public static void percorreGrafo(Buraco b) {
+        int jaentrou = 0;
+        Buraco aux;
 
+        System.out.println("tubo q estou: " + b.tuboorigem.nome);
+        //System.out.println("buraco q estou: "+b.nome);
+        if (b.buradoDestino != null) //se tiver aonde ir vai
+        {
+            percorreGrafo(b.buradoDestino);
+        } else {
+            if (b.nome == b.tuboorigem.ultimoburaco.nome) {//for o ultimo buraco do tubo
+                b.tuboorigem.adicionaBolinha();
+            } else {
+                percorreGrafo(b.pegaoProximoBuraco());
+            }
+        }
+    }
 }

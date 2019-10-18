@@ -6,7 +6,7 @@ public class Tubo {
     public int nome;
     public int quantBolinha;
     public ArrayList<Buraco> buracos = new ArrayList<Buraco>();
-
+    public Buraco ultimoburaco;
     public Tubo (int nome){this.nome = nome;}
 
     public int getNome() {
@@ -24,7 +24,7 @@ public class Tubo {
     }
 
     public int achaBuraco(int nome){
-        for (int i = 0; i< buracos.size(); i++){
+        for (int i = 0; i<buracos.size(); i++){
             if(nome == buracos.get(i).getNome()){ //se ele ja existe
                 return i;
             }
@@ -43,7 +43,14 @@ public class Tubo {
                     buracos.set(p,a);
                 }
             }
+
         }
+
+        setUltimoBuraco();
+    }
+
+    public void setUltimoBuraco(){
+        this.ultimoburaco = this.buracos.get(this.buracos.size());
     }
 
     public void printaBuraco(){
