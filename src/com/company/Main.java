@@ -33,7 +33,9 @@ public class Main {
             percorreGrafo(barraca.tubos.get(i).buracos.get(0));
             System.out.println("///////////////////////////////////////////////////////");
         }
-        System.out.println("numero de bolinhas: "+barraca.tubos.get(0).quantBolinha);
+
+        maisBolinhas(barraca);
+        //System.out.println("numero de bolinhas: "+barraca.tubos.get(0).quantBolinha);
         //System.out.println("primeiro buraco do tubo: "+barraca.tubos.get(0).buracos.get(4).tubodestino.getNome());
 
         //System.out.println(barraca.tubos.get(0).buracos.get(0).tubodestino.getNome());
@@ -174,6 +176,29 @@ public class Main {
             }
         }
 
+    }
+
+    public static void maisBolinhas(Barraca b)
+    {
+        Tubo vencedor=b.getTubos().get(0);
+        int cont=0;
+        int cont2=1;
+        while(cont<quantidadetubos&&cont2<quantidadetubos)
+        {
+            if(vencedor.quantBolinha<b.getTubos().get(cont+1).quantBolinha)
+            {
+                vencedor=b.getTubos().get(cont+1);
+                cont++;
+                cont2++;
+            }
+            else
+            {
+                vencedor=b.getTubos().get(cont);
+                cont2++;
+            }
+        }
+
+        System.out.println("Tubo com mais bolinhas: "+vencedor.nome);
     }
 
 }
