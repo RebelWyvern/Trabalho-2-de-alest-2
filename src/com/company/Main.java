@@ -27,7 +27,7 @@ public class Main {
         for (Tubo t:barraca.getTubos()) {
             t.ordenaBuracos();
         }
-        for(int i=0;i<barraca.getTubos().size()-1;i++)
+        for(int i=0;i<barraca.getTubos().size();i++)
         {
             System.out.println("tubo a ser percorrido: "+barraca.getTubos().get(i).nome);
             percorreGrafo(barraca.tubos.get(i).buracos.get(0));
@@ -141,15 +141,13 @@ public class Main {
     }
 
     public static void percorreGrafo(Buraco b)
-    {   int jaentrou=0;
+    {   int jaentrou=0;// variavel para ter ctz que a bolinha entre em apenas um buraco
 
         System.out.println("tubo q estou: "+b.tuboorigem.nome);
         //System.out.println("buraco q estou: "+b.nome);
-        if(b.buradoDestino!=null)
-        {
-            percorreGrafo(b.buradoDestino);
-        }
-        else
+        if(b.buradoDestino!=null)//se o buraco atual tiver um destino para ir
+        { percorreGrafo(b.buradoDestino); }//chama recursivamente o metodo novamente passando o buraco destino do atual buraco
+        else// se o buraco q estou não tiver destino, procura um buraco que está abaixo dele que tenha como ir para outro buraco
         {
             for(int i=0;i<b.tuboorigem.buracos.size();i++)
             {
@@ -163,8 +161,8 @@ public class Main {
                             percorreGrafo(b.tuboorigem.buracos.get(j).buradoDestino);
                             jaentrou++;
                         }
-                        else if(b.tuboorigem.buracos.get(j).buradoDestino==null&&j==b.tuboorigem.buracos.size()-1)
-                        {
+                        else if(j>=b.tuboorigem.buracos.size()-1)
+                        {//se chegou no buraco final desse tubo e ele não tem destino, adiciona uma bolinha nesse tubo e termina o metodo
                             b.tuboorigem.adicionaBolinha();
                             return;
                         }
@@ -178,27 +176,25 @@ public class Main {
 
     }
 
-    public static void maisBolinhas(Barraca b)
+    public static void maisBolinhas(Barraca b)//metodo que descobre o tubo com mais bolinhas
     {
-        Tubo vencedor=b.getTubos().get(0);
+        Tubo vencedor=b.getTubos().get(0);//variavel para armazenar o tubo vencedor
         int cont=0;
         int cont2=1;
-        while(cont<quantidadetubos&&cont2<quantidadetubos)
+        while(cont<quantidadetubos&&cont2<quantidadetubos)//cont e cont2 servem para percorrer o vetor de tubos e comparar a quantidade de bolinhas de cada com cada
         {
-            if(vencedor.quantBolinha<b.getTubos().get(cont+1).quantBolinha)
+            if(vencedor.quantBolinha<b.getTubos().get(cont2).quantBolinha)//se o tubo da posiçao de cont2 tiver mais bolinhas do que o tubo na variavel vencedor
             {
-                vencedor=b.getTubos().get(cont+1);
+                vencedor=b.getTubos().get(cont2);//substitui o tubo que esta na variavel vencedor pelo que esta na posição do cont2
                 cont++;
-                cont2++;
+                cont2++;//avança as 2 variaveis
             }
-            else
+            else// se o tubo da variavel vencedor ainda assim tiver o maior numero de bolinhas
             {
-                vencedor=b.getTubos().get(cont);
-                cont2++;
+                cont2++;//avança somente cont2, assim so avançando cont quando o tubo da variavel vencedor tiver menos bolinhas do que esta na posição de cont2
             }
         }
-
-        System.out.println("Tubo com mais bolinhas: "+vencedor.nome);
+        System.out.println("Tubo com mais bolinhas: "+vencedor.nome+"\nQuantidade de bolinhas do tubo vencedor: "+vencedor.quantBolinha);
     }
 
 }
