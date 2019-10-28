@@ -16,7 +16,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-	    readFile("anivia.txt", lista);
+	    readFile("caso1.txt", lista);
 	    quantidadetubos = (int) lista.remove(0);
 	    lista.remove(0);
         barraca = new Barraca();
@@ -26,6 +26,7 @@ public class Main {
         barraca.ordenaTubos();
         for (Tubo t:barraca.getTubos()) {
             t.ordenaBuracos();
+
         }
         for(int i=0;i<barraca.getTubos().size();i++)
         {
@@ -179,19 +180,17 @@ public class Main {
     public static void maisBolinhas(Barraca b)//metodo que descobre o tubo com mais bolinhas
     {
         Tubo vencedor=b.getTubos().get(0);//variavel para armazenar o tubo vencedor
-        int cont=0;
-        int cont2=1;
-        while(cont<quantidadetubos&&cont2<quantidadetubos)//cont e cont2 servem para percorrer o vetor de tubos e comparar a quantidade de bolinhas de cada com cada
+        int cont=1;
+        while(cont<quantidadetubos)//cont e cont2 servem para percorrer o vetor de tubos e comparar a quantidade de bolinhas de cada com cada
         {
-            if(vencedor.quantBolinha<b.getTubos().get(cont2).quantBolinha)//se o tubo da posiçao de cont2 tiver mais bolinhas do que o tubo na variavel vencedor
+            if(vencedor.quantBolinha<b.getTubos().get(cont).quantBolinha)//se o tubo da posiçao de cont2 tiver mais bolinhas do que o tubo na variavel vencedor
             {
-                vencedor=b.getTubos().get(cont2);//substitui o tubo que esta na variavel vencedor pelo que esta na posição do cont2
-                cont++;
-                cont2++;//avança as 2 variaveis
+                vencedor=b.getTubos().get(cont);//substitui o tubo que esta na variavel vencedor pelo que esta na posição do cont2
+                cont++;//avança as 2 variaveis
             }
             else// se o tubo da variavel vencedor ainda assim tiver o maior numero de bolinhas
             {
-                cont2++;//avança somente cont2, assim so avançando cont quando o tubo da variavel vencedor tiver menos bolinhas do que esta na posição de cont2
+                cont++;//avança somente cont2, assim so avançando cont quando o tubo da variavel vencedor tiver menos bolinhas do que esta na posição de cont2
             }
         }
         System.out.println("Tubo com mais bolinhas: "+vencedor.nome+"\nQuantidade de bolinhas do tubo vencedor: "+vencedor.quantBolinha);

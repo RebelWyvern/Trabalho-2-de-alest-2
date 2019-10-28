@@ -46,6 +46,17 @@ public class Tubo {
         }
     }
 
+    /*public void arrumaBuracos(Barraca b)
+    {
+        for (Tubo t:b.getTubos()) {
+            for (Buraco ba:t.getBuracos()) {
+                if(ba.tubodestino==null)
+                {ba.tubodestino=new Tubo(-1);}
+            }
+
+        }
+    }*/
+
     public void printaBuraco(){
         for (int i = 0; i<buracos.size();i++){
             System.out.println("Buraco: " + buracos.get(i).getNome());
