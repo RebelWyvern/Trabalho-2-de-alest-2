@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="02b91ba4-0dc7-4ad9-b35a-bc5ce2847e25" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/com/company/Barraca.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Barraca.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/t2algo2/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/t2algo2/com/company/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Tubo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Tubo.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,7 +32,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
+            <state relative-caret-position="169">
               <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -45,11 +45,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/company/Barraca.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="107">
-              <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="34" />
-              <folding>
-                <element signature="e#229#230#0" expanded="true" />
-                <element signature="e#257#258#0" expanded="true" />
-              </folding>
+              <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -57,12 +53,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Tubo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="11" column="97" lean-forward="true" selection-start-line="11" selection-start-column="97" selection-end-line="11" selection-end-column="97" />
-              <folding>
-                <element signature="e#463#464#0" expanded="true" />
-                <element signature="e#498#499#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="180">
+              <caret line="11" column="93" selection-start-line="11" selection-start-column="93" selection-end-line="11" selection-end-column="93" />
             </state>
           </provider>
         </entry>
@@ -109,7 +101,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -133,6 +124,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -187,17 +179,18 @@
       <workItem from="1571784486018" duration="3295000" />
       <workItem from="1572295075679" duration="3832000" />
       <workItem from="1572302241140" duration="8025000" />
+      <workItem from="1572392353306" duration="782000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44854000" />
+    <option name="totallyTimeSpent" value="45636000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12793522" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12955466" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -310,17 +303,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Barraca.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="34" />
-          <folding>
-            <element signature="e#229#230#0" expanded="true" />
-            <element signature="e#257#258#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Buraco.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -328,20 +310,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Barraca.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Tubo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="11" column="97" lean-forward="true" selection-start-line="11" selection-start-column="97" selection-end-line="11" selection-end-column="97" />
-          <folding>
-            <element signature="e#463#464#0" expanded="true" />
-            <element signature="e#498#499#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="180">
+          <caret line="11" column="93" selection-start-line="11" selection-start-column="93" selection-end-line="11" selection-end-column="93" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
+        <state relative-caret-position="169">
           <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />

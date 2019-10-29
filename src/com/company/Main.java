@@ -18,7 +18,7 @@ public class Main {
     public static void main(String[] args) {
 
         lista = new int[30000001];
-	    readFile("caso7.txt", lista);
+	    readFile("caso8.txt", lista);
 	    quantidadetubos = lista[0];//(int) lista.remove(0);
         System.out.println("li");
 	    //lista.remove(0);
