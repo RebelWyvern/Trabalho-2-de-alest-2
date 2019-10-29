@@ -3,16 +3,26 @@ package com.company;
 import java.util.ArrayList;
 
 public class Barraca { //é o conjuntoq ue guarda todos os tubos
-    public ArrayList<Tubo> tubos = new ArrayList();
-    public Barraca(){}
+    //public ArrayList<Tubo> tubos = new ArrayList();
+    public Tubo[] tubos;
+    public int contTubos;
+    public Barraca(){
+        tubos = new Tubo[1000000];
+        contTubos = 0;
+    }
 
-    public ArrayList<Tubo> getTubos() {
+    public void addemTubos(Tubo t){
+        this.tubos[contTubos] = t;
+        contTubos++;
+    }
+
+    public Tubo[] getTubos() {
         return tubos;
     }
 
     public int achaTubo(int nome){
-        for (int i = 0; i< tubos.size(); i++){
-            if(nome == tubos.get(i).getNome()){ //se ele ja existe
+        for (int i = 0; i< contTubos; i++){
+            if(nome == tubos[i].getNome()){ //se ele ja existe
                 return i;
             }
         }
@@ -21,21 +31,21 @@ public class Barraca { //é o conjuntoq ue guarda todos os tubos
 
     public void ordenaTubos(){
         Tubo a,b;
-        for(int i = 0; i<tubos.size();i++){
-            for(int p = 0; p<tubos.size();p++){
-                if(tubos.get(i).getNome() < tubos.get(p).getNome()){
-                    a = tubos.get(i);
-                    b = tubos.get(p);
-                    tubos.set(i,b);
-                    tubos.set(p,a);
+        for(int i = 0; i<contTubos;i++){
+            for(int p = 0; p<contTubos;p++){
+                if(tubos[i].getNome() < tubos[p].getNome()){
+                    a = tubos[i];
+                    b = tubos[p];
+                    tubos[i]=b;
+                    tubos[p]=a;
                 }
             }
         }
     }
 
     public void printaTubos(){
-        for (int i = 0; i<tubos.size();i++){
-            System.out.println("Tubo: " + tubos.get(i).getNome());
+        for (int i = 0; i<tubos.length-1;i++){
+            System.out.println("Tubo: " + tubos[i].getNome());
         }
     }
 }

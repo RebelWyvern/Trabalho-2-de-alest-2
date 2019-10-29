@@ -5,9 +5,11 @@ import java.util.ArrayList;
 public class Tubo {
     public int nome;
     public int quantBolinha;
-    public ArrayList<Buraco> buracos = new ArrayList<Buraco>();
+    public Buraco[] buracos;
+    public Buraco ultimoBuraco;
+    public int contburacosvetor;
 
-    public Tubo (int nome){this.nome = nome;}
+    public Tubo (int nome){this.nome = nome;this.contburacosvetor = 0; buracos = new Buraco[10000];}
 
     public int getNome() {
         return nome;
@@ -15,7 +17,7 @@ public class Tubo {
     public void setNome(int nome) {
         this.nome = nome;
     }
-    public ArrayList<Buraco> getBuracos() {
+    public Buraco[] getBuracos() {
         return buracos;
     }
 
@@ -24,8 +26,8 @@ public class Tubo {
     }
 
     public int achaBuraco(int nome){
-        for (int i = 0; i< buracos.size(); i++){
-            if(nome == buracos.get(i).getNome()){ //se ele ja existe
+        for (int i = 0; i< contburacosvetor; i++){
+            if(nome == buracos[i].getNome()){ //se ele ja existe
                 return i;
             }
         }
@@ -34,16 +36,18 @@ public class Tubo {
 
     public void ordenaBuracos(){
         Buraco a,b;
-        for(int i = 0; i<buracos.size();i++){
-            for(int p = 0; p<buracos.size();p++){
-                if(buracos.get(i).getNome() < buracos.get(p).getNome()){
-                    a = buracos.get(i);
-                    b = buracos.get(p);
-                    buracos.set(i,b);
-                    buracos.set(p,a);
+        for(int i = 0; i<contburacosvetor;i++){
+            for(int p = 0; p<contburacosvetor;p++){
+                if(buracos[i].getNome() < buracos[p].getNome()){
+                    a = buracos[i];
+                    b = buracos[p];
+                    buracos[i] = b;
+                    buracos[p] = a;
                 }
             }
         }
+        this.ultimoBuraco = buracos[contburacosvetor-1];
+        //System.out.println("ANIVIA: " + ultimoBuraco.nome);
     }
 
     /*public void arrumaBuracos(Barraca b)
@@ -57,9 +61,14 @@ public class Tubo {
         }
     }*/
 
+    public void addBuraconoTubo(Buraco b){
+        this.buracos[contburacosvetor] = b;
+        this.contburacosvetor++;
+    }
+
     public void printaBuraco(){
-        for (int i = 0; i<buracos.size();i++){
-            System.out.println("Buraco: " + buracos.get(i).getNome());
+        for (int i = 0; i<contburacosvetor;i++){
+            System.out.println("Buraco: " + buracos[i].getNome());
         }
     }
 }
