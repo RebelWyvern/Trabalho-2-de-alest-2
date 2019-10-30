@@ -16,9 +16,10 @@ public class Main {
     public static int total = 0;
 
     public static void main(String[] args) {
+        long startTime = System.nanoTime();
 
         lista = new int[30000001];
-	    readFile("caso8.txt", lista);
+	    readFile("caso7.txt", lista);
 	    quantidadetubos = lista[0];//(int) lista.remove(0);
         System.out.println("li");
 	    //lista.remove(0);
@@ -40,6 +41,9 @@ public class Main {
         }
 
         maisBolinhas(barraca);
+        long endTime   = System.nanoTime();
+        long totalTime = endTime - startTime;
+        System.out.println("tempo total em nano segundos: "+totalTime);
         //System.out.println("numero de bolinhas: "+barraca.tubos.get(0).quantBolinha);
         //System.out.println("primeiro buraco do tubo: "+barraca.tubos.get(0).buracos.get(4).tubodestino.getNome());
 
